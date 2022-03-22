@@ -24,7 +24,7 @@ class De:
         Returns:
             int: La valeur pigée.
         """
-        # VOTRE CODE ICI
+        return randint(1, self.nb_faces)
 
     def afficher_valeur(self, valeur):
         """
@@ -35,3 +35,15 @@ class De:
             valeur: la valeur pigée à afficher
         """
         afficher(chr(9855 + valeur) if self.nb_faces == 6 else valeur, end=' ')
+
+
+
+
+###################################################################################################
+# TESTE
+#
+# if __name__ == "__main__":
+#     de1 = De()
+#     print(de1.lancer())
+#
+###################################################################################################
