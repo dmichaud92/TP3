@@ -47,7 +47,7 @@ class Case:
         Args:
             voisins (list): La liste des voisins à donner à la case
         """
-        # VOTRE CODE ICI
+        self.voisins = voisins
 
     def nombre_de_des(self):
         """
