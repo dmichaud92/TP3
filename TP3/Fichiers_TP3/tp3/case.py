@@ -38,7 +38,7 @@ class Case:
         Args:
             joueur (Joueur): Le joueur
         """
-        # VOTRE CODE ICI
+        self.appartenance = joueur
 
     def definir_voisins(self, voisins):
         """
