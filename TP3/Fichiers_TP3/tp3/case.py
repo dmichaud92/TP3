@@ -2,7 +2,7 @@
 Contient la classe Case, qui correspond à une case du jeu.
 """
 
-from afficheur import afficher
+from afficheur import afficher, affichage
 from de import De
 
 # Cette constante fixe le nombre maximal de dés dans une case
@@ -78,25 +78,25 @@ class Case:
         Args:
             des (list): Les nouveaux dés
         """
-        # VOTRE CODE ICI
+        self.des = des
 
     def selectionner_pour_attaque(self):
         """
         Cette méthode change le mode de la case pour le mode 'attaque'
         """
-        # VOTRE CODE ICI
+        self.mode = FORMATS['attaque']
 
     def selectionner_pour_defense(self):
         """
         Cette méthode change le mode de la case pour le mode 'defense'
         """
-        # VOTRE CODE ICI
+        self.mode = FORMATS['defense']
 
     def deselectionner(self):
         """
         Cette méthode change le mode de la case pour le mode 'attente'
         """
-        # VOTRE CODE ICI
+        self.mode = FORMATS['attente']
 
     def est_pleine(self):
         """
@@ -120,7 +120,11 @@ class Case:
         Returns:
             int: La somme des dés
         """
-        # VOTRE CODE ICI
+        resultat = 0
+        for de in self.des:
+            resultat = resultat + De.lancer
+        affichage.afficher = resultat
+        return resultat
 
     def afficher(self):
         """
