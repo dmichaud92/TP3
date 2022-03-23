@@ -3,7 +3,6 @@ Contient la classe Carte, qui gère l'ensemble des cases du jeu.
 """
 
 from random import shuffle
-
 from afficheur import afficher
 
 
@@ -155,7 +154,14 @@ class Carte:
             dict: Le dictionnaire coordonnees:cases restreint à celle du joueur.
 
         """
-        # VOTRE CODE ICI
+        # À VÉRIFIER
+
+        dict = {}
+        for case in self.cases:
+            if case == joueur:
+                dict[case] = self.cases[case]
+
+        return dict
 
     def obtenir_cases_ennemies(self, joueur):
         """
@@ -169,7 +175,16 @@ class Carte:
             dict: Le dictionnaire coordonnees:cases restreint à celle n'appartenant pas au joueur.
 
         """
-        # VOTRE CODE ICI
+
+        # À VÉRIFIER
+
+        dict = {}
+
+        for case in self.cases:
+            if case != joueur:
+                dict[case] = self.cases[case]
+
+        return dict
 
     def obtenir_cases_non_pleines(self, joueur):
         """
