@@ -56,7 +56,7 @@ class Case:
         Returns:
             int: Le nombre de dés
         """
-        # VOTRE CODE ICI
+        return int(len(self.des))
 
     def ajouter_un_de(self, de):
         """
@@ -106,7 +106,11 @@ class Case:
         Returns:
             bool: True si le nombre de dés est égal au maximum, False sinon
         """
-        # VOTRE CODE ICI
+
+        if self.nombre_de_des == MAX_DES_PAR_CASE:
+            return True
+        else:
+            return False
 
     def lancer_des(self):
         """
