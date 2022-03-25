@@ -122,7 +122,7 @@ class Case:
         """
         resultat = 0
         for de in self.des:
-            resultat = resultat + De.lancer
+            resultat = resultat + de.lancer()
         affichage.afficher = resultat
         return resultat
 
