@@ -3,7 +3,6 @@ Point d'entrée du TP3.
 """
 
 from random import shuffle
-
 from afficheur import obtenir_couleurs_permises
 from carte_autogeneree import CarteAutogeneree
 from guerre_des_des import GuerreDesDes
