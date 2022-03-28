@@ -4,7 +4,6 @@ ou un ordinateur.
 """
 
 from random import choice
-
 from afficheur import afficher
 from de import De
 
@@ -109,24 +108,33 @@ class Joueur:
             bool: True si la carte ne contient aucune case appartenant au joueur, False sinon.
 
         """
-        # VOTRE CODE ICI
+        if carte.obtenir_cases_joueur() == {}:
+            return True
+        else:
+            return False
+
 
     def afficher_information(self):
         """
         Cette méthode affiche (afficheur.afficher) le type du joueur colorisé avec sa couleur.
         """
-        # VOTRE CODE ICI
+        afficher(chaine=self.type_joueur, couleur=self.couleur)
 
     def afficher_tour(self):
         """
         Cette méthode affiche (afficheur.afficher) que c'est le tour de ce joueur, avec son nom (couleur) et le
         nombre de dés en surplus, le tout colorisé avec sa couleur.
         """
-        # VOTRE CODE ICI
+        afficher(chaine="C'est le tour de", couleur=self.couleur, end=" ")
+        afficher(chaine=self.couleur, couleur=self.couleur, end=".")
+        afficher(chaine="Il te reste ", couleur=self.couleur, end=" ")
+        afficher(chaine=self.des_en_surplus, couleur=self.couleur, end=" ")
+        afficher(chaine="en surplus", couleur=self.couleur, end=".")
 
     def afficher_victoire(self):
         """
         Cette méthode affiche (afficheur.afficher) la victoire du joueur,
         avec son nom (couleur), colorisé avec sa couleur.
         """
-        # VOTRE CODE ICI
+        afficher(chaine="la victoire du joueur", couleur=self.couleur, end=" ")
+        afficher(chaine=self.couleur, couleur=self.couleur, end="!")
