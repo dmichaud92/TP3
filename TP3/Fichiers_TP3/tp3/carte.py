@@ -154,11 +154,9 @@ class Carte:
             dict: Le dictionnaire coordonnees:cases restreint à celle du joueur.
 
         """
-        # À VÉRIFIER
-
         dict = {}
         for case in self.cases:
-            if case == joueur:
+            if case.appartenance == joueur:
                 dict[case] = self.cases[case]
 
         return dict
@@ -175,13 +173,9 @@ class Carte:
             dict: Le dictionnaire coordonnees:cases restreint à celle n'appartenant pas au joueur.
 
         """
-
-        # À VÉRIFIER
-
         dict = {}
-
         for case in self.cases:
-            if case != joueur:
+            if case.appartenance != joueur:
                 dict[case] = self.cases[case]
 
         return dict
