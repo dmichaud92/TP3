@@ -40,7 +40,11 @@ class JoueurOrdinateur(Joueur):
             dict: Les cases du jeu dont le nombre de dés fait partie des valeurs acceptées
 
         """
-        # VOTRE CODE ICI
+        dict = {}
+        for case in cases:
+            if case.nombre_de_des() in valeurs_acceptees:
+                dict[case] = cases[case]
+        return dict
 
     def trouver_nb_des_optimal(self, cases, minimum=False):
         """
@@ -61,7 +65,11 @@ class JoueurOrdinateur(Joueur):
         Returns:
             Case: la case sélectionnée
         """
-        # VOTRE CODE ICI
+        if minimum:
+            case = min(cases, key=cases.get)
+        else:
+            case = max(cases, key=cases.get)
+        return case
 
     def strategie_selection_attaquant(self, cases_disponibles):
         """
