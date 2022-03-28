@@ -4,7 +4,6 @@ automatiquement selon les dimensions spécifiées
 """
 
 from random import randint
-
 from carte import Carte
 from case import Case
 
