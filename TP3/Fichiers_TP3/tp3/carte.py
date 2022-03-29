@@ -193,6 +193,10 @@ class Carte:
             dict: Le dictionnaire coordonnees:cases restreint à celle appartenant au joueur et non pleines.
 
         """
+<<<<<<< HEAD
+=======
+
+>>>>>>> abd9c83a872364cfcb4489d87d3d5ae96ebc4f2c
         dict = {}
         for case in self.cases:
             if case.appartenance == joueur and not case.est_pleine:
@@ -214,7 +218,12 @@ class Carte:
                     se défendre de la case qui attaque.
 
         """
-        # VOTRE CODE ICI
+        dict = {}
+        for case in self.obtenir_cases_ennemies(joueur):
+            if case in case.voisins:
+                dict[case] = self.obtenir_cases_ennemies(joueur)[case]
+        return dict
+        # À VERIFIER PLUS TARD 
 
     def cases_disponibles_pour_attaque(self, joueur):
         """
@@ -233,10 +242,11 @@ class Carte:
         """
         # VOTRE CODE ICI
 
+
     def tout_deselectionner(self):
         """
         Cette méthode désélectionne toutes les cases (Case.deselectionner).
         """
-        
+
         for case in self.cases:
             case.deselectionner()
