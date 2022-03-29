@@ -102,7 +102,6 @@ class JoueurOrdinateur(Joueur):
             Case: La case sélectionnée par l'IA. None si elle retourne à la phase de
             sélection de l'attaquant.
         """
-
         # Si des voisins ont 1 ou 2 dés de moins, l'IA attaque le plus fort d'entre eux
         case_defense = self.trouver_nb_des_optimal(
             self.filtrer_nb_des(cases_disponibles,

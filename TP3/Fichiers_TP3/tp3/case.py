@@ -106,7 +106,6 @@ class Case:
         Returns:
             bool: True si le nombre de dés est égal au maximum, False sinon
         """
-
         if self.nombre_de_des == MAX_DES_PAR_CASE:
             return True
         else:
@@ -131,7 +130,6 @@ class Case:
         Cette méthode affiche la case selon le format correspondant à son mode
         et la couleur du joueur auquel elle appartient.
         """
-
         texte_case = FORMATS[self.mode].format(self.nombre_de_des())
         if self.appartenance is not None:
             afficher(texte_case, couleur=self.appartenance.couleur, end='')

@@ -32,7 +32,6 @@ class GuerreDesDes:
         Cette méthode effectue la totalité du déroulement d'une partie.
         Référez-vous à l'énoncé du TP3 pour en comprendre le détail.
         """
-
         while not self.partie_terminee():
             for joueur in self.joueurs:
                 if not joueur.est_elimine(self.carte):

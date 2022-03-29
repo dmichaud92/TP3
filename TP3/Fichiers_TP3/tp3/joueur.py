@@ -38,8 +38,7 @@ class Joueur:
         Returns:
             Case: La case sélectionnée pour attaque. None si la stratégie retourne None
         """
-
-
+        # VOTRE CODE ICI
 
     def selectionner_defenseur(self, carte, case_attaquante):
         """
@@ -100,7 +99,6 @@ class Joueur:
             case = choice(cases_non_pleines)
             self.des_en_surplus.pop(-1)
             case.ajouter_un_de()
-
 
     def est_elimine(self, carte):
         """

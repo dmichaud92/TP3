@@ -22,7 +22,6 @@ class CarteAutogeneree(Carte):
             largeur (int): Le nombre de cases maximum de gauche à droite
             n_trous (int): Le nombre de cases à enlever
         """
-
         super().__init__(hauteur, largeur, self.creer_carte(hauteur, largeur, n_trous))
 
     def creer_carte(self, hauteur, largeur, n_trous):
@@ -41,7 +40,6 @@ class CarteAutogeneree(Carte):
         Returns:
             dict: Le dictionnaire de cases
         """
-        
         cases_connectees = False
         n_essais = 0
         cases = {}

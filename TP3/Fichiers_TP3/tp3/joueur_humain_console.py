@@ -46,7 +46,6 @@ class JoueurHumainConsole(Joueur):
             Case: La case sélectionnée pour attaque. None si on choisit de passer notre tour.
 
         """
-        # VOTRE CODE ICI
         print("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner")
         x, y = input("pour attaque (ou rien pour terminer le tour): ")
         if x <= max(cases_disponibles,)

@@ -16,7 +16,6 @@ class Carte:
             largeur (int): Le nombre de cases maximum de gauche à droite
             cases (dict): L'ensemble des cases, avec leurs coordonnées comme clé.
         """
-
         self.hauteur = hauteur
         self.largeur = largeur
         self.cases = cases
@@ -29,7 +28,6 @@ class Carte:
         Args:
             cases (dict): Les cases auxquelles attribuer les voisins
         """
-
         for case in cases.values():
             voisins_potentiels = [(case.coordonnees[0] + i, case.coordonnees[1] + j) for i, j in
                                   [(0, -1), (-1, 0), (1, 0), (0, 1)]]
@@ -51,7 +49,6 @@ class Carte:
         Returns:
             bool: True si les cases sont connectées, False sinon.
         """
-
         n_cases = len(cases)
         cases_vues = []
         frontiere = list(cases.values())[:1]
@@ -102,7 +99,6 @@ class Carte:
             int: La taille du plus grand territoire du joueur
 
         """
-
         if not self.carte_prete:
             raise AssertionError("La carte doit d'abord être divisée en territoires. ")
 
@@ -126,7 +122,6 @@ class Carte:
         Cette méthode affiche l'ensemble de la carte en chaîne de caractères.
 
         """
-
         afficher()
         afficher("x\\y |   ", end='')
         for x in list(range(self.largeur)):
@@ -219,7 +214,6 @@ class Carte:
             if case in case_attaque.voisins:
                 dict[case] = self.obtenir_cases_ennemies(joueur)[case]
         return dict
-        # À VERIFIER PLUS TARD
 
     def cases_disponibles_pour_attaque(self, joueur):
         """
@@ -242,12 +236,9 @@ class Carte:
         # for case in dict_cases:
         #     if len(case.des) >= 2:
 
-
-
     def tout_deselectionner(self):
         """
         Cette méthode désélectionne toutes les cases (Case.deselectionner).
         """
-
         for case in self.cases:
             case.deselectionner()
