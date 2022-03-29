@@ -238,5 +238,6 @@ class Carte:
         """
         Cette méthode désélectionne toutes les cases (Case.deselectionner).
         """
-        # VOTRE CODE ICI
-        self.tout_deselectionner = case.deselectionner
+        
+        for case in self.cases:
+            case.deselectionner()
