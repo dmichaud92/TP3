@@ -236,11 +236,11 @@ class Carte:
                     au joueur et pouvant attaquer.
 
         """
-        # VOTRE CODE ICI
-        dict = {}
-        dict_cases = self.obtenir_cases_joueur(joueur)
-        for case in dict_cases:
-            if len(case.des) >= 2:
+        # # VOTRE CODE ICI
+        # dict = {}
+        # dict_cases = self.obtenir_cases_joueur(joueur)
+        # for case in dict_cases:
+        #     if len(case.des) >= 2:
 
 
 
