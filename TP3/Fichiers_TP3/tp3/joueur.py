@@ -117,7 +117,6 @@ class Joueur:
         else:
             return False
 
-
     def afficher_information(self):
         """
         Cette méthode affiche (afficheur.afficher) le type du joueur colorisé avec sa couleur.
