@@ -38,7 +38,8 @@ class Joueur:
         Returns:
             Case: La case sélectionnée pour attaque. None si la stratégie retourne None
         """
-        # VOTRE CODE ICI
+
+
 
     def selectionner_defenseur(self, carte, case_attaquante):
         """
@@ -70,7 +71,8 @@ class Joueur:
         Args:
             nouveaux_des (list): La liste de dés à ajouter.
         """
-        # VOTRE CODE ICI
+        for de in nouveaux_des:
+            self.des_en_surplus.append(de)
 
     def distribuer_surplus(self, carte):
         """
@@ -94,7 +96,11 @@ class Joueur:
             cases_non_pleines (list): La liste de cases desquelles on pige la case.
 
         """
-        # VOTRE CODE ICI
+        for de in self.des_en_surplus:
+            case = choice(cases_non_pleines)
+            self.des_en_surplus.pop(-1)
+            case.ajouter_un_de()
+
 
     def est_elimine(self, carte):
         """
