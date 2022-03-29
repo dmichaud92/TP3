@@ -217,10 +217,10 @@ class Carte:
         """
         dict = {}
         for case in self.obtenir_cases_ennemies(joueur):
-            if case in case.voisins:
+            if case in case_attaque.voisins:
                 dict[case] = self.obtenir_cases_ennemies(joueur)[case]
         return dict
-        # À VERIFIER PLUS TARD 
+        # À VERIFIER PLUS TARD
 
     def cases_disponibles_pour_attaque(self, joueur):
         """
@@ -238,6 +238,11 @@ class Carte:
 
         """
         # VOTRE CODE ICI
+        dict = {}
+        dict_cases = self.obtenir_cases_joueur(joueur)
+        for case in dict_cases:
+            if len(case.des) >= 2:
+
 
 
     def tout_deselectionner(self):
