@@ -193,7 +193,12 @@ class Carte:
             dict: Le dictionnaire coordonnees:cases restreint à celle appartenant au joueur et non pleines.
 
         """
-        # VOTRE CODE ICI
+        #VRAIMENT PAS CERTAINE
+        dict = {}
+        for case in self.cases:
+            if case.appartenance == joueur and not case.est_pleine:
+                dict[case] = self.cases[case]
+        return dict
 
     def cases_disponibles_pour_defense(self, joueur, case_attaque):
         """
