@@ -193,7 +193,10 @@ class Carte:
             dict: Le dictionnaire coordonnees:cases restreint à celle appartenant au joueur et non pleines.
 
         """
+<<<<<<< HEAD
+=======
 
+>>>>>>> abd9c83a872364cfcb4489d87d3d5ae96ebc4f2c
         dict = {}
         for case in self.cases:
             if case.appartenance == joueur and not case.est_pleine:
