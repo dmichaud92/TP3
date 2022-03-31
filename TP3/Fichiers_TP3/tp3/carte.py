@@ -150,11 +150,11 @@ class Carte:
 
         """
         dict = {}
-        for case in self.cases:
+        for case in self.cases.values():
             if case.appartenance == joueur:
-                dict[case] = self.cases[case]
-
+                dict[case.coordonnees] = case
         return dict
+        # EXEMPLE DU PROF EN CLASSE
 
     def obtenir_cases_ennemies(self, joueur):
         """
@@ -169,11 +169,13 @@ class Carte:
 
         """
         dict = {}
-        for case in self.cases:
+        for case in self.cases.values():
             if case.appartenance != joueur:
-                dict[case] = self.cases[case]
+                dict[case.coordonnees] = case
 
         return dict
+
+    # MODIFIER SELON L'EXEMPLE DU PROF À VÉRIFIER
 
     def obtenir_cases_non_pleines(self, joueur):
         """
@@ -214,6 +216,7 @@ class Carte:
             if case in case_attaque.voisins:
                 dict[case] = self.obtenir_cases_ennemies(joueur)[case]
         return dict
+        # MANQUE LES COORDONNEES
 
     def cases_disponibles_pour_attaque(self, joueur):
         """
@@ -230,11 +233,13 @@ class Carte:
                     au joueur et pouvant attaquer.
 
         """
-        # # VOTRE CODE ICI
-        # dict = {}
-        # dict_cases = self.obtenir_cases_joueur(joueur)
-        # for case in dict_cases:
-        #     if len(case.des) >= 2:
+        # FAIT AVEC LE PROF
+        cases_joueur = self.obtenir_cases_joueur(joueur)
+        cases_attaque = {}
+        for coordonnees, case in cases_joueur.items():  # .items => itérer sur les keys et les values
+            if case.nombre_de_des() >= 2 and self.cases_disponibles_pour_defense(joueur, case) != {}:
+                cases_attaque[coordonnees] = case
+        return cases_attaque
 
     def tout_deselectionner(self):
         """
