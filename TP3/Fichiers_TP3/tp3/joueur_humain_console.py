@@ -46,17 +46,19 @@ class JoueurHumainConsole(Joueur):
             Case: La case sélectionnée pour attaque. None si on choisit de passer notre tour.
 
         """
+        afficher(chaine=cases_disponibles.keys())
         coordonnees = input("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
                             "pour attaque (ou rien pour terminer le tour): ")
-        if coordonnees != "":
+        while type(coordonnees) != tuple or len(coordonnees) != 2:
+            coordonnees = input(" Entrée invalide. Entrez les coordonnées de la case que vous souhaitez" +
+                                " sélectionner pour attaque (ou rien pour terminer le tour): ")
+        while coordonnees not in cases_disponibles.keys():
+            coordonnees = input("Veuillez entrer une case disponible: ")
+        if coordonnees == "":
             return None
-
-    # if x in cases_disponibles:
-        #     if cases_disponibles[x] == y:
-        #         case = (x, y)
-        # if x == "" and y == "":
-        #     case = None
-        # return case
+        for case in cases_disponibles.values():
+            if coordonnees == cases_disponibles.keys():
+                return case
 
     def strategie_selection_defenseur(self, cases_disponibles, case_attaquante):
         """

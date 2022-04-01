@@ -150,12 +150,12 @@ class Carte:
             dict: Le dictionnaire coordonnees:cases restreint à celle du joueur.
 
         """
-        dict = {}
+        cases_joueur = {}
         for case in self.cases.values():
             if case.appartenance == joueur:
-                dict[case.coordonnees] = case
-        return dict
-        # EXEMPLE DU PROF EN CLASSE
+                cases_joueur[case.coordonnees] = case
+        return cases_joueur
+
 
     def obtenir_cases_ennemies(self, joueur):
         """
@@ -176,7 +176,7 @@ class Carte:
 
         return cases_ennemies
 
-    # MODIFIER SELON L'EXEMPLE DU PROF À VÉRIFIER
+
 
     def obtenir_cases_non_pleines(self, joueur):
         """
@@ -192,9 +192,9 @@ class Carte:
 
         """
         dict = {}
-        for case in self.cases:
+        for case in self.cases.values():
             if case.appartenance == joueur and not case.est_pleine:
-                dict[case] = self.cases[case]
+                dict[case.coordonnees] = case
         return dict
 
     def cases_disponibles_pour_defense(self, joueur, case_attaque):
@@ -214,10 +214,10 @@ class Carte:
         """
         cases_defense = {}
         for case in self.cases.values():
-            if case in  and case_attaque.voisins: #CASE ENNEMIE?
+            if case in self.obtenir_cases_ennemies(joueur) and case_attaque.voisins:
                 cases_defense[case.coordonnees] = case
         return cases_defense
-        # MANQUE LES COORDONNEES + CASE ENNEMIE VOIR EXEMPLE PROF
+
 
     def cases_disponibles_pour_attaque(self, joueur):
         """
@@ -234,10 +234,10 @@ class Carte:
                     au joueur et pouvant attaquer.
 
         """
-        # FAIT AVEC LE PROF
+
         cases_joueur = self.obtenir_cases_joueur(joueur)
         cases_attaque = {}
-        for coordonnees, case in cases_joueur.items():  # .items => itérer sur les keys et les values
+        for coordonnees, case in cases_joueur.items():
             if case.nombre_de_des() >= 2 and self.cases_disponibles_pour_defense(joueur, case) != {}:
                 cases_attaque[coordonnees] = case
         return cases_attaque

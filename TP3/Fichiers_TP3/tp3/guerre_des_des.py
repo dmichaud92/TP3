@@ -108,6 +108,7 @@ class GuerreDesDes:
             attaquant (Case): La case ayant réussi son attaque.
             defenseur (Case): La case ayant échoué sa défense.
         """
+
         afficher("SUCCÈS")
         # Premiere action
         defenseur.definir_appartenance(attaquant.appartenance)
