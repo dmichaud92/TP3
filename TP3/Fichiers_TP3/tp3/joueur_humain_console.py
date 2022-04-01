@@ -50,7 +50,7 @@ class JoueurHumainConsole(Joueur):
                             "pour attaque (ou rien pour terminer le tour): ")
         if coordonnees != "":
             return None
-        
+
     # if x in cases_disponibles:
         #     if cases_disponibles[x] == y:
         #         case = (x, y)
