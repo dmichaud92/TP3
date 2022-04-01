@@ -4,7 +4,6 @@ Contient la classe Carte, qui gère l'ensemble des cases du jeu.
 
 from random import shuffle
 from afficheur import afficher
-from case import Case
 
 
 class Carte:
@@ -156,7 +155,6 @@ class Carte:
                 cases_joueur[case.coordonnees] = case
         return cases_joueur
 
-
     def obtenir_cases_ennemies(self, joueur):
         """
         Cette méthode retourne les cases qui respectent ces critères:
@@ -175,8 +173,6 @@ class Carte:
                 cases_ennemies[case.coordonnees] = case
 
         return cases_ennemies
-
-
 
     def obtenir_cases_non_pleines(self, joueur):
         """
@@ -217,7 +213,6 @@ class Carte:
             if case in self.obtenir_cases_ennemies(joueur) and case_attaque.voisins:
                 cases_defense[case.coordonnees] = case
         return cases_defense
-
 
     def cases_disponibles_pour_attaque(self, joueur):
         """
