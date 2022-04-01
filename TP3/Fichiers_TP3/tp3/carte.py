@@ -4,8 +4,7 @@ Contient la classe Carte, qui gère l'ensemble des cases du jeu.
 
 from random import shuffle
 from afficheur import afficher
-from case import deselectionner
-#POURQUOI CA MARCHE PAS^
+from case import Case
 
 
 class Carte:

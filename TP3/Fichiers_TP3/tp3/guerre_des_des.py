@@ -115,7 +115,7 @@ class GuerreDesDes:
         de_qui_reste, des_qui_se_deplacent = attaquant.des[0], attaquant.des[1:]
         attaquant.remplacer_des(de_qui_reste)
         defenseur.remplacer_des(des_qui_se_deplacent)
-        
+
     def attaque_echec(self, attaquant):
         """
         Cette méthode supprime tous les dés de la case attaquante sauf un (Case.remplacer_des).
