@@ -46,10 +46,12 @@ class JoueurHumainConsole(Joueur):
             Case: La case sélectionnée pour attaque. None si on choisit de passer notre tour.
 
         """
-        # print("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner")
-        # x, y = input("pour attaque (ou rien pour terminer le tour): ")
-        # if x <= max(cases_disponibles,)
-        # if x in cases_disponibles:
+        coordonnees = input("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
+                            "pour attaque (ou rien pour terminer le tour): ")
+        if coordonnees != "":
+            return None
+        
+    # if x in cases_disponibles:
         #     if cases_disponibles[x] == y:
         #         case = (x, y)
         # if x == "" and y == "":
