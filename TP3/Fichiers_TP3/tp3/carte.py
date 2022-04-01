@@ -4,6 +4,8 @@ Contient la classe Carte, qui gère l'ensemble des cases du jeu.
 
 from random import shuffle
 from afficheur import afficher
+from case import deselectionner
+#POURQUOI CA MARCHE PAS^
 
 
 class Carte:
@@ -245,5 +247,5 @@ class Carte:
         """
         Cette méthode désélectionne toutes les cases (Case.deselectionner).
         """
-        for case in self.cases:
+        for case in self.cases.values():
             case.deselectionner()
