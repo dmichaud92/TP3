@@ -47,13 +47,13 @@ class JoueurHumainConsole(Joueur):
 
         """
         afficher(chaine=cases_disponibles.keys())
-        coordonnees = input("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
-                            "pour attaque (ou rien pour terminer le tour): ")
+        coordonnees = demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
+                               "pour attaque (ou rien pour terminer le tour): ")
         while type(coordonnees) != tuple or len(coordonnees) != 2:
-            coordonnees = input(" Entrée invalide. Entrez les coordonnées de la case que vous souhaitez" +
-                                " sélectionner pour attaque (ou rien pour terminer le tour): ")
+            coordonnees = demander(" Entrée invalide. Entrez les coordonnées de la case que vous souhaitez" +
+                                   " sélectionner pour attaque (ou rien pour terminer le tour): ")
         while coordonnees not in cases_disponibles.keys():
-            coordonnees = input("Veuillez entrer une case disponible: ")
+            coordonnees = demander("Veuillez entrer une case disponible: ")
         if coordonnees == "":
             return None
         for case in cases_disponibles.values():
@@ -92,4 +92,16 @@ class JoueurHumainConsole(Joueur):
             Case: La case sélectionnée pour attaque. None si on choisit de passer notre tour.
 
         """
-        # VOTRE CODE ICI
+        afficher(chaine=cases_disponibles.keys())
+        coordonnees = demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
+                               "pour attaque (ou rien pour terminer le tour): ")
+        while type(coordonnees) != tuple or len(coordonnees) != 2:
+            coordonnees = demander(" Entrée invalide. Entrez les coordonnées de la case que vous souhaitez" +
+                                   " sélectionner pour attaque (ou rien pour terminer le tour): ")
+        while coordonnees not in cases_disponibles.keys():
+            coordonnees = demander("Veuillez entrer une case disponible: ")
+        if coordonnees == "":
+            return None
+        for case in cases_disponibles.values():
+            if coordonnees == cases_disponibles.keys():
+                return case

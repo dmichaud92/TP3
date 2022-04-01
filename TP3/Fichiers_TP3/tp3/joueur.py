@@ -38,7 +38,10 @@ class Joueur:
         Returns:
             Case: La case sélectionnée pour attaque. None si la stratégie retourne None
         """
-        # VOTRE CODE ICI
+
+        case = self.strategie_selection_attaquant(carte.cases_disponibles_pour_attaque(self))
+        case.selectionner_pour_attaque()
+        return case
 
     def selectionner_defenseur(self, carte, case_attaquante):
         """
@@ -55,7 +58,11 @@ class Joueur:
         Returns:
             Case: La case sélectionnée pour défense. None si la stratégie retourne None
         """
-        # VOTRE CODE ICI
+        case = self.strategie_selection_defenseur(carte.cases_disponibles_pour_defense(case_attaquante),
+                                                  case_attaquante)
+        if case is not None:
+            case.selectionner_pour_defense()
+        return case
 
     def strategie_selection_attaquant(self, cases_disponibles):
         raise NotImplementedError("Les classes enfant doivent implémenter cette méthode. ")
