@@ -56,7 +56,7 @@ class Case:
         Returns:
             int: Le nombre de dés
         """
-        return int(len(self.des))
+        return len(self.des)
 
     def ajouter_un_de(self, de):
         """
@@ -84,19 +84,19 @@ class Case:
         """
         Cette méthode change le mode de la case pour le mode 'attaque'
         """
-        self.mode = FORMATS['attaque']
+        self.mode = 'attaque'
 
     def selectionner_pour_defense(self):
         """
         Cette méthode change le mode de la case pour le mode 'defense'
         """
-        self.mode = FORMATS['defense']
+        self.mode = 'defense'
 
     def deselectionner(self):
         """
         Cette méthode change le mode de la case pour le mode 'attente'
         """
-        self.mode = FORMATS['attente']
+        self.mode = 'attente'
 
     def est_pleine(self):
         """
@@ -130,10 +130,8 @@ class Case:
         Cette méthode affiche la case selon le format correspondant à son mode
         et la couleur du joueur auquel elle appartient.
         """
-
-
-        # texte_case = FORMATS[self.mode].format(self.nombre_de_des())
-        # if self.appartenance is not None:
-        #     (texte_case, couleur=self.appartenance.couleur, end='')
-        # else:
-        #     afficher(texte_case, end='')
+        texte_case = FORMATS[self.mode].format(self.nombre_de_des())
+        if self.appartenance is not None:
+            afficher(texte_case, couleur=self.appartenance.couleur, end='')
+        else:
+            afficher(texte_case, end='')

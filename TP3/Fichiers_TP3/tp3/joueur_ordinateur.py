@@ -16,6 +16,7 @@ Dans tous les cas, les égalités sont brisées arbitrairement.
 
 from joueur import Joueur
 from random import randint
+from case import Case
 
 
 class JoueurOrdinateur(Joueur):
@@ -40,11 +41,11 @@ class JoueurOrdinateur(Joueur):
             dict: Les cases du jeu dont le nombre de dés fait partie des valeurs acceptées
 
         """
-        dict = {}
-        for case in cases:
-            if case.nombre_de_des() in valeurs_acceptees:
-                dict[case] = cases[case]
-        return dict
+        dico = {}
+        for coordonnees, case in cases.items():
+            if case.nombre_de_des in valeurs_acceptees:
+                dico[coordonnees] = case
+        return dico
 
     def trouver_nb_des_optimal(self, cases, minimum=False):
         """
@@ -65,11 +66,21 @@ class JoueurOrdinateur(Joueur):
         Returns:
             Case: la case sélectionnée
         """
-        if minimum:
-            case = min(cases, key=cases.get)
-        else:
-            case = max(cases, key=cases.get)
-        return case
+        de_sur_case = 0
+        case_choisie = ""
+        if minimum is False:
+            for case in cases.values():
+                if case.nombre_de_des() > de_sur_case:
+                    de_sur_case = case.nombre_de_des()
+                    case_choisie = case
+
+        if minimum is True:
+            de_sur_case = 9
+            for case in cases.values():
+                if case.nombre_de_des() < de_sur_case:
+                    de_sur_case = case.nombre_de_des()
+                    case_choisie = case
+        return case_choisie
 
     def strategie_selection_attaquant(self, cases_disponibles):
         """

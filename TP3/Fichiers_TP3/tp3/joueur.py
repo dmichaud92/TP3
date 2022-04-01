@@ -38,10 +38,16 @@ class Joueur:
         Returns:
             Case: La case sélectionnée pour attaque. None si la stratégie retourne None
         """
-
-        case = self.strategie_selection_attaquant(carte.cases_disponibles_pour_attaque(self))
-        case.selectionner_pour_attaque()
+        dico = carte.cases_disponibles_pour_attaque(self)
+        case = self.strategie_selection_attaquant(dico)
+        if case is None:
+            return None
         return case
+
+
+        # case = self.strategie_selection_attaquant(carte.cases_disponibles_pour_attaque(self))
+        # case.selectionner_pour_attaque()
+        # return case
 
     def selectionner_defenseur(self, carte, case_attaquante):
         """
@@ -58,11 +64,17 @@ class Joueur:
         Returns:
             Case: La case sélectionnée pour défense. None si la stratégie retourne None
         """
-        case = self.strategie_selection_defenseur(carte.cases_disponibles_pour_defense(case_attaquante),
-                                                  case_attaquante)
-        if case is not None:
-            case.selectionner_pour_defense()
+        dico = carte.cases_disponibles_pour_defense(self, self.selectionner_attaquant(carte))
+        case = self.strategie_selection_defenseur(dico, case_attaquante)
+        if case is None:
+            return None
         return case
+
+        # case = self.strategie_selection_defenseur(carte.cases_disponibles_pour_defense(case_attaquante),
+        #                                           case_attaquante)
+        # if case is not None:
+        #     case.selectionner_pour_defense()
+        # return case
 
     def strategie_selection_attaquant(self, cases_disponibles):
         raise NotImplementedError("Les classes enfant doivent implémenter cette méthode. ")
@@ -135,10 +147,9 @@ class Joueur:
         Cette méthode affiche (afficheur.afficher) que c'est le tour de ce joueur, avec son nom (couleur) et le
         nombre de dés en surplus, le tout colorisé avec sa couleur.
         """
-        phrase = "C,est le tour de " + self.couleur + ". Il te reste " + str(len(self.des_en_surplus)) + \
-                 " de dés en surplus"
+        phrase = "C'est le tour de " + self.couleur + ". Il te reste " + str(len(self.des_en_surplus)) + \
+                 " dés en surplus"
         afficher(chaine=phrase, couleur=self.couleur, end=" ")
-
 
     def afficher_victoire(self):
         """

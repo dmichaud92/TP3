@@ -46,19 +46,34 @@ class JoueurHumainConsole(Joueur):
             Case: La case sélectionnée pour attaque. None si on choisit de passer notre tour.
 
         """
-        afficher(chaine=cases_disponibles.keys())
-        coordonnees = demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
-                               "pour attaque (ou rien pour terminer le tour): ")
+        x, y = demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
+                        "pour attaque (ou rien pour terminer le tour): ")
+        coordonnees = (x, y)
         while type(coordonnees) != tuple or len(coordonnees) != 2:
-            coordonnees = demander(" Entrée invalide. Entrez les coordonnées de la case que vous souhaitez" +
-                                   " sélectionner pour attaque (ou rien pour terminer le tour): ")
+            x, y = demander("Entrée invalide. Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
+                            "pour attaque (ou rien pour terminer le tour): ")
+            coordonnees = (x, y)
         while coordonnees not in cases_disponibles.keys():
-            coordonnees = demander("Veuillez entrer une case disponible: ")
+            x, y = demander("Veuillez entrer une case disponible: ")
+            coordonnees = (x, y)
         if coordonnees == "":
             return None
-        for case in cases_disponibles.values():
-            if coordonnees == cases_disponibles.keys():
+        for coord, case in cases_disponibles.items():
+            if coordonnees == coord:
                 return case
+        # # afficher(chaine=cases_disponibles.keys())
+        # coordonnees = tuple(demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner " +
+        #                              "pour attaque (ou rien pour terminer le tour): "))
+        # while type(coordonnees) != tuple or len(coordonnees) != 2:
+        #     coordonnees = tuple(demander(" Entrée invalide. Entrez les coordonnées de la case que vous souhaitez" +
+        #                                  " sélectionner pour attaque (ou rien pour terminer le tour): "))
+        # while coordonnees not in cases_disponibles.keys():
+        #     coordonnees = tuple(demander("Veuillez entrer une case disponible: "))
+        # if coordonnees == "":
+        #     return None
+        # for case in cases_disponibles.values():
+        #     if coordonnees == cases_disponibles.keys():
+        #         return case
 
     def strategie_selection_defenseur(self, cases_disponibles, case_attaquante):
         """
@@ -92,16 +107,32 @@ class JoueurHumainConsole(Joueur):
             Case: La case sélectionnée pour attaque. None si on choisit de passer notre tour.
 
         """
-        afficher(chaine=cases_disponibles.keys())
-        coordonnees = demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
-                               "pour attaque (ou rien pour terminer le tour): ")
+        # # afficher(chaine=cases_disponibles.keys())
+        # coordonnees = demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner " +
+        #                        "pour attaque (ou rien pour terminer le tour): ")
+        # while type(coordonnees) != tuple or len(coordonnees) != 2:
+        #     coordonnees = demander(" Entrée invalide. Entrez les coordonnées de la case que vous souhaitez" +
+        #                            " sélectionner pour attaque (ou rien pour terminer le tour): ")
+        # while coordonnees not in cases_disponibles.keys():
+        #     coordonnees = demander("Veuillez entrer une case disponible: ")
+        # if coordonnees == "":
+        #     return None
+        # for case in cases_disponibles.values():
+        #     if coordonnees == cases_disponibles.keys():
+        #         return case
+
+        x, y = demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
+                        "pour attaque (ou rien pour terminer le tour): ")
+        coordonnees = (x, y)
         while type(coordonnees) != tuple or len(coordonnees) != 2:
-            coordonnees = demander(" Entrée invalide. Entrez les coordonnées de la case que vous souhaitez" +
-                                   " sélectionner pour attaque (ou rien pour terminer le tour): ")
+            x, y = demander("Entrée invalide. Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
+                            "pour attaque (ou rien pour terminer le tour): ")
+            coordonnees = (x, y)
         while coordonnees not in cases_disponibles.keys():
-            coordonnees = demander("Veuillez entrer une case disponible: ")
+            x, y = demander("Veuillez entrer une case disponible: ")
+            coordonnees = (x, y)
         if coordonnees == "":
             return None
-        for case in cases_disponibles.values():
-            if coordonnees == cases_disponibles.keys():
+        for coord, case in cases_disponibles.items():
+            if coordonnees == coord:
                 return case
