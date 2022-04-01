@@ -169,8 +169,8 @@ class GuerreDesDes:
 
         """
         for joueur in self.joueurs:
-            bool = self.conquete(joueur)
-            if bool:
+            est_gagnant = self.conquete(joueur)
+            if est_gagnant:
                 return joueur
             else:
                 return None
