@@ -24,7 +24,10 @@ class De:
         Returns:
             int: La valeur pigée.
         """
-        return randint(1, self.nb_faces)
+        valeur = randint(1, 6)
+        self.afficher_valeur(valeur)
+        return valeur
+
 
     def afficher_valeur(self, valeur):
         """
