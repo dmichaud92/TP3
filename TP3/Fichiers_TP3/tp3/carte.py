@@ -169,12 +169,12 @@ class Carte:
             dict: Le dictionnaire coordonnees:cases restreint à celle n'appartenant pas au joueur.
 
         """
-        dict = {}
+        cases_ennemies = {}
         for case in self.cases.values():
             if case.appartenance != joueur:
-                dict[case.coordonnees] = case
+                cases_ennemies[case.coordonnees] = case
 
-        return dict
+        return cases_ennemies
 
     # MODIFIER SELON L'EXEMPLE DU PROF À VÉRIFIER
 
@@ -214,9 +214,9 @@ class Carte:
         """
         cases_defense = {}
         for case in self.cases.values():
-            if case in  and case_attaque.voisins:
+            if case in  and case_attaque.voisins: #CASE ENNEMIE?
                 cases_defense[case.coordonnees] = case
-        return dict
+        return cases_defense
         # MANQUE LES COORDONNEES + CASE ENNEMIE VOIR EXEMPLE PROF
 
     def cases_disponibles_pour_attaque(self, joueur):
