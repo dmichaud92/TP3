@@ -187,11 +187,11 @@ class Carte:
             dict: Le dictionnaire coordonnees:cases restreint à celle appartenant au joueur et non pleines.
 
         """
-        dict = {}
+        cases_non_pleines = {}
         for case in self.cases.values():
             if case.appartenance == joueur and not case.est_pleine:
-                dict[case.coordonnees] = case
-        return dict
+                cases_non_pleines[case.coordonnees] = case
+        return cases_non_pleines
 
     def cases_disponibles_pour_defense(self, joueur, case_attaque):
         """
