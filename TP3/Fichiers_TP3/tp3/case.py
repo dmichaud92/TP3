@@ -130,8 +130,10 @@ class Case:
         Cette méthode affiche la case selon le format correspondant à son mode
         et la couleur du joueur auquel elle appartient.
         """
-        texte_case = FORMATS[self.mode].format(self.nombre_de_des())
-        if self.appartenance is not None:
-            afficher(texte_case, couleur=self.appartenance.couleur, end='')
-        else:
-            afficher(texte_case, end='')
+
+
+        # texte_case = FORMATS[self.mode].format(self.nombre_de_des())
+        # if self.appartenance is not None:
+        #     (texte_case, couleur=self.appartenance.couleur, end='')
+        # else:
+        #     afficher(texte_case, end='')

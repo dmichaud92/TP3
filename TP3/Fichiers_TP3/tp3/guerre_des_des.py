@@ -93,7 +93,10 @@ class GuerreDesDes:
             defenseur (Case): La case qui se défend
             force_defenseur (int): La force avec laquelle elle se défend
         """
-        # VOTRE CODE ICI
+        if force_attaquant > force_defenseur:
+            self.attaque_succes(attaquant, defenseur)
+        else:
+            self.attaque_echec(attaquant)
 
     def attaque_succes(self, attaquant, defenseur):
         """
@@ -125,7 +128,8 @@ class GuerreDesDes:
             attaquant: La case ayant échoué son attaque.
         """
         afficher("ÉCHEC")
-        # VOTRE CODE ICI
+        de_qui_reste = attaquant.des[0]
+        attaquant.remplacer_des(de_qui_reste)
 
     def fin_du_tour(self, joueur):
         """
@@ -138,14 +142,22 @@ class GuerreDesDes:
         Args:
             joueur Joueur: le joueur qui vient de terminer son tour
         """
-        # VOTRE CODE ICI
+        list = [De() for _ in range(self.carte.taille_plus_grand_territoire(joueur))]
+        joueur.ajouter_n_des(list)
 
     def partie_terminee(self):
         """
         Cette méthode indique si la partie est terminé, i.e. s'il existe un
         gagnant (GuerreDesDes.determiner_gagnant).
+
+        Returns:
+            bool: True s'il existe un gagnant, False sinon.
+
         """
-        # VOTRE CODE ICI
+        if self.determiner_gagnant() in self.joueurs:
+            return True
+        else:
+            return False
 
     def determiner_gagnant(self):
         """
@@ -156,7 +168,12 @@ class GuerreDesDes:
             Joueur: Le joueur ayant conquis (None si aucun)
 
         """
-        # VOTRE CODE ICI
+        for joueur in self.joueurs:
+            bool = self.conquete(joueur)
+            if bool:
+                return joueur
+            else:
+                return None
 
     def conquete(self, joueur):
         """
@@ -170,4 +187,7 @@ class GuerreDesDes:
             bool: True si toutes les cases appartiennent au joueur, False sinon.
 
         """
-        # VOTRE CODE ICI
+        for case in self.carte.cases.values():
+            if case.appartenance != joueur:
+                return False
+        return True

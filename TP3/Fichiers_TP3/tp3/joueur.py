@@ -119,7 +119,7 @@ class Joueur:
             bool: True si la carte ne contient aucune case appartenant au joueur, False sinon.
 
         """
-        if carte.obtenir_cases_joueur() == {}:
+        if carte.obtenir_cases_joueur(self) == {}:
             return True
         else:
             return False
@@ -135,11 +135,10 @@ class Joueur:
         Cette méthode affiche (afficheur.afficher) que c'est le tour de ce joueur, avec son nom (couleur) et le
         nombre de dés en surplus, le tout colorisé avec sa couleur.
         """
-        afficher(chaine="C'est le tour de", couleur=self.couleur, end=" ")
-        afficher(chaine=self.couleur, couleur=self.couleur, end=".")
-        afficher(chaine="Il te reste ", couleur=self.couleur, end=" ")
-        afficher(chaine=self.des_en_surplus, couleur=self.couleur, end=" ")
-        afficher(chaine="en surplus", couleur=self.couleur, end=".")
+        phrase = "C,est le tour de " + self.couleur + ". Il te reste " + str(len(self.des_en_surplus)) + \
+                 " de dés en surplus"
+        afficher(chaine=phrase, couleur=self.couleur, end=" ")
+
 
     def afficher_victoire(self):
         """
