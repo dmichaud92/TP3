@@ -213,12 +213,12 @@ class Carte:
                     se défendre de la case qui attaque.
 
         """
-        dict = {}
-        for case in self.obtenir_cases_ennemies(joueur):
-            if case in case_attaque.voisins:
-                dict[case] = self.obtenir_cases_ennemies(joueur)[case]
+        cases_defense = {}
+        for case in self.cases.values():
+            if case in  and case_attaque.voisins:
+                cases_defense[case.coordonnees] = case
         return dict
-        # MANQUE LES COORDONNEES
+        # MANQUE LES COORDONNEES + CASE ENNEMIE VOIR EXEMPLE PROF
 
     def cases_disponibles_pour_attaque(self, joueur):
         """
