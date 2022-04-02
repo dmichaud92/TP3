@@ -150,9 +150,9 @@ class Carte:
 
         """
         cases_joueur = {}
-        for case in self.cases.values():
+        for coordonnees, case in self.cases.items():
             if case.appartenance == joueur:
-                cases_joueur[case.coordonnees] = case
+                cases_joueur[coordonnees] = case
         return cases_joueur
 
     def obtenir_cases_ennemies(self, joueur):
@@ -188,9 +188,9 @@ class Carte:
 
         """
         cases_non_pleines = {}
-        for case in self.cases.values():
+        for coordonnees, case in self.cases.items():
             if case.appartenance == joueur and not case.est_pleine:
-                cases_non_pleines[case.coordonnees] = case
+                cases_non_pleines[coordonnees] = case
         return cases_non_pleines
 
     def cases_disponibles_pour_defense(self, joueur, case_attaque):

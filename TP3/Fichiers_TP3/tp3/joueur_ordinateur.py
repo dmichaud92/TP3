@@ -67,7 +67,7 @@ class JoueurOrdinateur(Joueur):
             Case: la case sélectionnée
         """
         de_sur_case = 0
-        case_choisie = ""
+        case_choisie = None
         if minimum is False:
             for case in cases.values():
                 if case.nombre_de_des() > de_sur_case:

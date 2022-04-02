@@ -28,7 +28,6 @@ class De:
         self.afficher_valeur(valeur)
         return valeur
 
-
     def afficher_valeur(self, valeur):
         """
         Cette méthode affiche la valeur donnée en paramètre. Si le dé a 6 faces, on
