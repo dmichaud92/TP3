@@ -129,14 +129,20 @@ class JoueurHumainConsole(Joueur):
         #         return case
 
         x, y = demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
-                        "pour attaque (ou rien pour terminer le tour): ")
+                        " pour attaque (ou rien pour terminer le tour): ").split(",")
+        x = int(x)
+        y = int(y)
         coordonnees = (x, y)
         while type(coordonnees) != tuple or len(coordonnees) != 2:
-            x, y = demander("Entrée invalide. Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
-                            "pour attaque (ou rien pour terminer le tour): ")
+            x, y = demander("Entrée invalide. Entrez les coordonnées (x,y) de la case que vous souhaitez" +
+                            " sélectionner pour attaque (ou rien pour terminer le tour): ").split(",")
+            x = int(x)
+            y = int(y)
             coordonnees = (x, y)
-        while coordonnees not in cases_disponibles.keys():
-            x, y = demander("Veuillez entrer une case disponible: ")
+        while coordonnees not in cases_disponibles:
+            x, y = demander("Veuillez entrer une case disponible: ").split(",")
+            x = int(x)
+            y = int(y)
             coordonnees = (x, y)
         if coordonnees == "":
             return None
