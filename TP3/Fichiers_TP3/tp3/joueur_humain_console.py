@@ -61,6 +61,7 @@ class JoueurHumainConsole(Joueur):
         for coord, case in cases_disponibles.items():
             if coordonnees == coord:
                 return case
+
         # # afficher(chaine=cases_disponibles.keys())
         # coordonnees = tuple(demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner " +
         #                              "pour attaque (ou rien pour terminer le tour): "))
