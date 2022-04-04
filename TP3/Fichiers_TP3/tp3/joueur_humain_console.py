@@ -66,10 +66,10 @@ class JoueurHumainConsole(Joueur):
                         bool_test = True
                 except ValueError:
                     test = demander("Entrée invalide.Entrez les coordonnées de la case que vous souhaitez" +
-                                    "sélectionner pour défense(ou rien pour terminer le tour): ")
+                                    " sélectionner pour attaque (ou rien pour terminer le tour): ")
             except ValueError:
                 test = demander("Entrée invalide.Entrez les coordonnées de la case que vous souhaitez sélectionner" +
-                                "pour défense(ou rien pour terminer le tour): ")
+                                " pour attaque (ou rien pour terminer le tour): ")
 
         for coord, case in cases_disponibles.items():
             if coord == coordonnees:
@@ -151,7 +151,7 @@ class JoueurHumainConsole(Joueur):
         coordonnees = None
         bool_test = False
         test = demander("Entrez les coordonnées (x,y) de la case que vous souhaitez sélectionner" +
-                        " pour attaque (ou rien pour terminer le tour): ")
+                        " pour défense (ou rien pour terminer le tour): ")
         while not bool_test:
             try:
                 if test == "":
@@ -167,10 +167,10 @@ class JoueurHumainConsole(Joueur):
                         bool_test = True
                 except ValueError:
                     test = demander("Entrée invalide.Entrez les coordonnées de la case que vous souhaitez" +
-                                    "sélectionner pour défense(ou rien pour terminer le tour): ")
+                                    " sélectionner pour défense(ou rien pour terminer le tour): ")
             except ValueError:
                 test = demander("Entrée invalide.Entrez les coordonnées de la case que vous souhaitez sélectionner" +
-                                "pour défense(ou rien pour terminer le tour): ")
+                                " pour défense(ou rien pour terminer le tour): ")
 
         for coord, case in cases_disponibles.items():
             if coord == coordonnees:

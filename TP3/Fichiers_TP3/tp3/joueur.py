@@ -114,10 +114,8 @@ class Joueur:
             cases_non_pleines (list): La liste de cases desquelles on pige la case.
 
         """
-        for de in self.des_en_surplus:
-            case = choice(cases_non_pleines)
-            self.des_en_surplus.pop(-1)
-            case.ajouter_un_de()
+        case = choice(cases_non_pleines)
+        case.ajouter_un_de(self.des_en_surplus.pop(-1))
 
     def est_elimine(self, carte):
         """

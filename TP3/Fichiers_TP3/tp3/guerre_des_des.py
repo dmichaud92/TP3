@@ -116,7 +116,7 @@ class GuerreDesDes:
         # Premiere action
         defenseur.definir_appartenance(attaquant.appartenance)
         # Deuxieme action
-        de_qui_reste, des_qui_se_deplacent = attaquant.des[0], attaquant.des[1:]
+        de_qui_reste, des_qui_se_deplacent = [attaquant.des[0]], attaquant.des[1:]
         attaquant.remplacer_des(de_qui_reste)
         defenseur.remplacer_des(des_qui_se_deplacent)
 

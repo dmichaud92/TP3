@@ -122,7 +122,7 @@ class Case:
         resultat = 0
         for de in self.des:
             resultat = resultat + de.lancer()
-        affichage.afficher = resultat
+        afficher(chaine=resultat)
         return resultat
 
     def afficher(self):

@@ -189,7 +189,7 @@ class Carte:
         """
         cases_non_pleines = {}
         for coordonnees, case in self.cases.items():
-            if case.appartenance == joueur and not case.est_pleine:
+            if case.appartenance == joueur and not case.est_pleine():
                 cases_non_pleines[coordonnees] = case
         return cases_non_pleines
 
@@ -208,13 +208,16 @@ class Carte:
                     se défendre de la case qui attaque.
 
         """
+
         cases_defense = {}
-        for case in self.cases.values():
-            if case in self.obtenir_cases_ennemies(joueur) and case_attaque.voisins:
+        case_ennemies = self.obtenir_cases_ennemies(joueur)
+        for case in case_ennemies.values():
+            if case in case_attaque.voisins:
                 cases_defense[case.coordonnees] = case
         return cases_defense
 
     def cases_disponibles_pour_attaque(self, joueur):
+
         """
         Cette méthode retourne les cases qui respectent ces critères:
             - Appartenir au joueur en argument (Carte.obtenir_cases_joueur)
