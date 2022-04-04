@@ -128,7 +128,7 @@ class GuerreDesDes:
             attaquant: La case ayant échoué son attaque.
         """
         afficher("ÉCHEC")
-        de_qui_reste = attaquant.des[0]
+        de_qui_reste = [attaquant.des[0]]
         attaquant.remplacer_des(de_qui_reste)
 
     def fin_du_tour(self, joueur):
@@ -144,6 +144,7 @@ class GuerreDesDes:
         """
         list = [De() for _ in range(self.carte.taille_plus_grand_territoire(joueur))]
         joueur.ajouter_n_des(list)
+        joueur.distribuer_surplus(self.carte)
 
     def partie_terminee(self):
         """

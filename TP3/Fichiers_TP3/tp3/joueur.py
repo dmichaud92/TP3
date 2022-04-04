@@ -64,7 +64,7 @@ class Joueur:
         Returns:
             Case: La case sélectionnée pour défense. None si la stratégie retourne None
         """
-        dico = carte.cases_disponibles_pour_defense(self, self.selectionner_attaquant(carte))
+        dico = carte.cases_disponibles_pour_defense(self, case_attaquante)
         case = self.strategie_selection_defenseur(dico, case_attaquante)
         if case is None:
             return None
