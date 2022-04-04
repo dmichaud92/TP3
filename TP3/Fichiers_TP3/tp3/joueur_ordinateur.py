@@ -66,6 +66,7 @@ class JoueurOrdinateur(Joueur):
         Returns:
             Case: la case sélectionnée
         """
+
         de_sur_case = 0
         case_choisie = None
         if minimum is False:
