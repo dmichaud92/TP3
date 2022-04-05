@@ -1,20 +1,20 @@
 ﻿Étudiant 1
 ---------------
-Prénom et Nom:
-Numéro de dossier (NI):
-Temps de réalisation: 
+Prénom et Nom: Didier Michaud
+Numéro de dossier (NI): 536955604
+Temps de réalisation: 17h
 
 Étudiant 2
 ---------------
 Prénom et Nom: Audrey-Ann Verret
 Numéro de dossier (NI): 111 240 753
-Temps de réalisation: 
+Temps de réalisation: 15h
 
 Étudiant 3
 ---------------
-Prénom et Nom:
-Numéro de dossier (NI):
-Temps de réalisation: 
+Prénom et Nom: Mouhammad Sarr
+Numéro de dossier (NI): 536 772 584
+Temps de réalisation: 8h
 
 
 *******************************************

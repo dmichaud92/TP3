@@ -106,7 +106,7 @@ class Case:
         Returns:
             bool: True si le nombre de dés est égal au maximum, False sinon
         """
-        if self.nombre_de_des == MAX_DES_PAR_CASE:
+        if self.nombre_de_des() == MAX_DES_PAR_CASE:
             return True
         else:
             return False

@@ -111,11 +111,8 @@ class GuerreDesDes:
             attaquant (Case): La case ayant réussi son attaque.
             defenseur (Case): La case ayant échoué sa défense.
         """
-
         afficher("SUCCÈS")
-        # Premiere action
         defenseur.definir_appartenance(attaquant.appartenance)
-        # Deuxieme action
         de_qui_reste, des_qui_se_deplacent = [attaquant.des[0]], attaquant.des[1:]
         attaquant.remplacer_des(de_qui_reste)
         defenseur.remplacer_des(des_qui_se_deplacent)
@@ -142,8 +139,8 @@ class GuerreDesDes:
         Args:
             joueur Joueur: le joueur qui vient de terminer son tour
         """
-        list = [De() for _ in range(self.carte.taille_plus_grand_territoire(joueur))]
-        joueur.ajouter_n_des(list)
+        liste = [De() for _ in range(self.carte.taille_plus_grand_territoire(joueur))]
+        joueur.ajouter_n_des(liste)
         joueur.distribuer_surplus(self.carte)
 
     def partie_terminee(self):
@@ -157,7 +154,7 @@ class GuerreDesDes:
         """
         if self.determiner_gagnant() in self.joueurs:
             return True
-        else:
+        if self.determiner_gagnant() is None:
             return False
 
     def determiner_gagnant(self):
@@ -169,12 +166,11 @@ class GuerreDesDes:
             Joueur: Le joueur ayant conquis (None si aucun)
 
         """
+        gagnant = None
         for joueur in self.joueurs:
-            est_gagnant = self.conquete(joueur)
-            if est_gagnant:
-                return joueur
-            else:
-                return None
+            if self.conquete(joueur):
+                gagnant = joueur
+        return gagnant
 
     def conquete(self, joueur):
         """
